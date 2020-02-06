@@ -8,29 +8,55 @@ $secondary-color: #fff;
 body {
     font-family: 'FormularMedium';
     background-color: $primary-color;
-    color: white;
+    color: $secondary-color;
     font-size: 50px;
 }
 
+/*
 a {
     text-decoration: none;
     color:white;
-}
+}*/
 
 header {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     position:fixed;
     top:0;
     left:0;
     width:100%;
     padding: 18px;
+
+    div {
+        mix-blend-mode: difference;
+    }
 }
 
-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:100vw;
-    height: 100vh;
+
+canvas {
+    vertical-align: bottom;
 }
+
+a {
+
+    text-decoration: none;
+}
+
+a.box {
+    border: solid 1px grey;
+    color: grey;
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+    transition: transform 0.3s ease;
+}
+
+a.box:hover {
+   transform: translateY(-5px);
+}
+
+
