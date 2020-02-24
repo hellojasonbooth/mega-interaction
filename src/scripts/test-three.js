@@ -9,7 +9,7 @@ let radiusY
 let imgs
 
 function preload() {
-    imgs = loadImage("../img/m.svg")
+    imgs = loadImage("../img/m.png")
 }
 
 function setup() {
