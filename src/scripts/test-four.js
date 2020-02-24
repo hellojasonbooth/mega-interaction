@@ -12,10 +12,12 @@ function Particle(x, y) {
     this.history = []
 
     this.update = function() {
+        
         this.x = this.x + this.xspeed
         this.y = this.y + this.yspeed
 
         // create vector for the x and y
+        // and stores a copy of all those locations
         const v = createVector(this.x, this.y)
         this.history.push(v)
         console.log(this.history.length)
