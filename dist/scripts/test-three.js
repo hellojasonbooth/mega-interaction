@@ -33,12 +33,8 @@ function draw(x, y) {
     fill('#fff')
 
     image(imgs, position.x, position.y)
-
     position.add(speed)
 
-    // x = x + speed.x
-    // y = y + speed.y
-  
     if (position.x + dimX >= width){
         speed.x = speed.x * -1
     } else if (position.x <= 0) {
