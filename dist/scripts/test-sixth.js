@@ -2,17 +2,14 @@
 
 let speedX
 let speedY
-
-let imgs
-
 let letters = []
+
 
 function preload() {
     for (let i = 0; i < 4; i++) {
         letters[i] = loadImage(`img/letter${i}.png`)
     }
 }
-
 
 
 function LetterMove(x, y) {
@@ -22,6 +19,7 @@ function LetterMove(x, y) {
 
     this.speedX = 5
     this.speedY = 5
+
 
     // half the size of each letter for
     // retina screens
@@ -34,6 +32,8 @@ function LetterMove(x, y) {
     // the history of previous positions
     this.history = []
 
+
+    // movement of interaction
     this.update = function() {
 
         this.x = this.x + this.speedX
@@ -42,42 +42,49 @@ function LetterMove(x, y) {
         
         let v = createVector(this.x, this.y)
         this.history.push(v)
-        // cap how many you want to see
+        // cap how many I want to see
         if (this.history.length > 180) {
             this.history.splice(0, 1)
         }
 
-        // create wall bounds
-        if (this.x >= width - letters[3].width) {
+        // create wall bounds and change of direction
+        if (this.x >= width - letters[0].width) {
             this.speedX = -this.speedX
         } else if (this.x <= 0) {
             this.speedX = -this.speedX
         }
 
-        if (this.y >= height - letters[3].height) {
+        if (this.y >= height - letters[0].height) {
             this.speedY = -this.speedY
         } else if (this.y <= 0) {
             this.speedY = -this.speedY
         }
 
+
     }
 
+    // images to display 
     this.show = function() {
-        image(letters[2], this.x, this.y,)
+        image(letters[0], this.x, this.y,)
 
-        for (var i = 0; i < this.history.length; i++) {
-            var pos = this.history[i]
-            image(letters[2], pos.x, pos.y,)
+        for (let i = 0; i < this.history.length; i++) {
+            const pos = this.history[i]
+            image(letters[0], pos.x, pos.y,)
         }
+
     }
+    
 
 }
 
+
+
 var LetterMove
+
 function setup() {
     pixelDensity(2.0)
     createCanvas(windowWidth, windowHeight)
-    LetterMove = new LetterMove(80, 80)
+    LetterMove = new LetterMove(380, 380)
 }
 
 function draw() {
@@ -91,9 +98,10 @@ function draw() {
     circle(mouseX, mouseY, 26, 26)
 }
 
-// function mouseclicked() {
-//     clicked()
-// }
+function mousePressed(){
+    // clicked()
+
+}
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
