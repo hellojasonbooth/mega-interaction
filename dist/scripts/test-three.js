@@ -7,16 +7,16 @@ function preload() {
 
 let x 
 let y 
-let speedX 
-let speedY 
+let speed
 let radiusX
 let radiusY
 
 function setup() {
     const canvas = createCanvas(windowWidth, windowHeight)
     position = createVector(200, 200)
-    speedX = 5
-    speedY = 5
+
+    speed = createVector(4, 4)
+
     x = 100
     y = 100
     dimX = imgs.width
@@ -25,24 +25,24 @@ function setup() {
 }
 
 function draw() {
-    background('#1b1b1b55')
+    background('#1b1b1b12')
     fill('#fff')
 
     image(imgs, x, y)
 
-    x = x + speedX
-    y = y + speedY
+    x = x + speed.x
+    y = y + speed.y
   
     if (x + dimX >= width){
-        speedX = speedX * -1
+        speed.x = speed.x * -1
     } else if (x <= 0) {
-        speedX = speedX * -1
+        speed.x = speed.x * -1
     }
 
     if (y + dimY >= height){
-        speedY = speedY * -1
+        speed.y = speed.y * -1
     } else if (y <= 0) {
-        speedY = speedY * -1
+        speed.y = speed.y * -1
     }
 
 }
