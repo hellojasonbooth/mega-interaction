@@ -5,8 +5,10 @@ function preload() {
     imgs = loadImage("img/m.png")
 }
 
+
 let x 
 let y 
+let position
 let speed
 let radiusX
 let radiusY
@@ -17,31 +19,35 @@ function setup() {
 
     speed = createVector(4, 4)
 
-    x = 100
-    y = 100
+    // x = 100
+    // y = 100
     dimX = imgs.width
     dimY = imgs.height
     canvas.parent('interaction')
 }
 
-function draw() {
+function draw(x, y) {
+    this.x = x
+    this.y = y
     background('#1b1b1b12')
     fill('#fff')
 
-    image(imgs, x, y)
+    image(imgs, position.x, position.y)
 
-    x = x + speed.x
-    y = y + speed.y
+    position.add(speed)
+
+    // x = x + speed.x
+    // y = y + speed.y
   
-    if (x + dimX >= width){
+    if (position.x + dimX >= width){
         speed.x = speed.x * -1
-    } else if (x <= 0) {
+    } else if (position.x <= 0) {
         speed.x = speed.x * -1
     }
 
-    if (y + dimY >= height){
+    if (position.y + dimY >= height){
         speed.y = speed.y * -1
-    } else if (y <= 0) {
+    } else if (position.y <= 0) {
         speed.y = speed.y * -1
     }
 
