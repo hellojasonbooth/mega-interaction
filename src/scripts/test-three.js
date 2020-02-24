@@ -1,16 +1,16 @@
 
+let imgs
+
+function preload() {
+    imgs = loadImage("img/m.png")
+}
+
 let x 
 let y 
 let speedX 
 let speedY 
 let radiusX
 let radiusY
-
-let imgs
-
-function preload() {
-    imgs = loadImage("../img/m.png")
-}
 
 function setup() {
     const canvas = createCanvas(windowWidth, windowHeight)
