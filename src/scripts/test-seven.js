@@ -103,7 +103,7 @@ const draw = function () {
     
     // and redraw based on the last 50 positions
     positions.forEach(pos => {
-            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, images[i].width / 2, images[i].height / 2)
+            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, 400, 300)
     })
     
     requestAnimationFrame(draw)
