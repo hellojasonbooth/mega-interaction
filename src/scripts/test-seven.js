@@ -19,7 +19,7 @@ let positions = []
 let i = 0
 const images = ["img/letter0.png", "img/letter1.png", "img/letter2.png", "img/letter3.png"].map(src => {
   const image = document.createElement("img")
-  image.src = "/" + src
+  image.src = src
   return image
 })
 
