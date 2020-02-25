@@ -9,10 +9,10 @@ canvasTag.style.height = window.innerHeight + "px"
 const context = canvasTag.getContext("2d")
 context.scale(2, 2)
 
-let aimX = null
-let aimY = null
-let currentX = null
-let currentY = null
+let aimX = Math.floor(Math.random() * window.innerWidth / 2)
+let aimY = Math.floor(Math.random() * window.innerHeight / 2)
+let currentX = 0
+let currentY = 0
 
 let positions = []
 
@@ -33,45 +33,49 @@ document.addEventListener("mousemove", function (event) {
 
 })
 
-currentX = window.innerWidth / 2
-currentY = window.innerHeight / 2
-aimX = window.innerWidth / 2
-aimY = window.innerHeight / 2
+
 
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the image)
-    const h = window.innerHeight - images[i].height
     const w = window.innerWidth - images[i].width
-    
-    const nh = Math.floor(Math.random() * h)
+    const h = window.innerHeight - images[i].height
+
     const nw = Math.floor(Math.random() * w)
+    const nh = Math.floor(Math.random() * h)
     
-    return [nh,nw]
+    return [nw, nh]
  
 }
 
 
-function runNq() {
+function moveImage() {
+
     let newq = makeNewPosition()
 
-    aimY = newq[0]
-    aimX = newq[1]
+    // aimX = newq[0]
+    // aimY = newq[1]
 
-    currentY = currentY + (aimY + newq[0])
-    currentX = currentX + (aimX + newq[1])
+    // currentX = currentX + (aimX + newq[0])
+    // currentY = currentY + (aimY + newq[1])
+
+    currentX = aimX + newq[0]
+    currentY = aimY + newq[1]
 
     console.log(newq[0], newq[1])
+
 }
 
+moveImage()
 
-    setInterval(function() {
-        runNq()
-        i = i + 1
-        if (i >= images.length) {
-            i = 0
-        }
-    }, 3000)
+setInterval(function() {
+    moveImage()
+
+    i = i + 1
+    if (i >= images.length) {
+        i = 0
+    }
+}, 2000)
 
 
 const draw = function () {
@@ -99,7 +103,7 @@ const draw = function () {
     
     // and redraw based on the last 50 positions
     positions.forEach(pos => {
-        context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, images[i].width, images[i].height)
+            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, images[i].width / 2, images[i].height / 2)
     })
     
     requestAnimationFrame(draw)
