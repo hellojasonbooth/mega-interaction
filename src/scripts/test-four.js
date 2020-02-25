@@ -46,6 +46,10 @@ function Particle(x, y) {
         fill(0, 150)
         rect(this.x, this.y, 80, 80)
 
+        // if (this.x = width - 80){
+        //     rotate(0.2)
+        // }
+
         for (var i = 0; i < this.history.length; i++) {
             var pos = this.history[i]
             stroke('#ffff00')

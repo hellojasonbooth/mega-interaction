@@ -18,8 +18,8 @@ let currentY = 0
 let i = 0
 
 const letters = [
-    'img/m.svg ', 'img/e.svg',
-    'img/g.svg', 'img/a.svg'].map(src => {
+    'img/svg/m.svg ', 'img/svg/e.svg',
+    'img/svg/g.svg', 'img/svg/a.svg'].map(src => {
     const letter = document.createElement("img")
     letter.src = src
     return letter
@@ -53,7 +53,7 @@ const draw = function () {
 
   if(currentX){
     if (letters[i].complete) {
-      context.drawImage(letters[i], currentX - 100, currentY - 100, 200, 200)
+      context.drawImage(letters[i], currentX - 100, currentY - 100, letters[i].width, letters[i].height)
     }
 
     currentX = currentX + (aimX - currentX) * 0.08

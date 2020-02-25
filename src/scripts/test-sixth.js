@@ -3,10 +3,11 @@
 let speedX
 let speedY
 let letters = []
+let i = 0
 
 
 function preload() {
-    for (let i = 0; i < 4; i++) {
+    for (; i < 4; i++) {
         letters[i] = loadImage(`img/letter${i}.png`)
     }
 }
@@ -20,7 +21,6 @@ function LetterMove(x, y) {
     this.speedX = 5
     this.speedY = 5
 
-
     // half the size of each letter for
     // retina screens
     for (let i = 0; i < 4; i++) {
@@ -31,7 +31,6 @@ function LetterMove(x, y) {
     // create an array that holds data for 
     // the history of previous positions
     this.history = []
-
 
     // movement of interaction
     this.update = function() {
@@ -65,26 +64,28 @@ function LetterMove(x, y) {
 
     // images to display 
     this.show = function() {
-        image(letters[0], this.x, this.y,)
-
+        image(letters[0], this.x, this.y)
+        
         for (let i = 0; i < this.history.length; i++) {
             const pos = this.history[i]
-            image(letters[0], pos.x, pos.y,)
+            image(letters[0], pos.x, pos.y)
         }
 
     }
     
-
 }
 
+// function pickImage() {
+// }
 
 
 var LetterMove
 
 function setup() {
-    pixelDensity(2.0)
+    // pixelDensity(2.0)
+    frameRate(60)
     createCanvas(windowWidth, windowHeight)
-    LetterMove = new LetterMove(380, 380)
+    LetterMove = new LetterMove(80, 80)
 }
 
 function draw() {
@@ -96,11 +97,6 @@ function draw() {
     fill('#fea8c5')
     noStroke()
     circle(mouseX, mouseY, 26, 26)
-}
-
-function mousePressed(){
-    // clicked()
-
 }
 
 function windowResized() {
