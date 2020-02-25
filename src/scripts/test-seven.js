@@ -79,7 +79,7 @@ function moveImage() {
 moveImage()
 
 setInterval(function() {
-    moveImage()
+    // moveImage()
 
     i = i + 1
     if (i >= images.length) {
