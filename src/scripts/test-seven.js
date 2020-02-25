@@ -63,12 +63,6 @@ function moveImage() {
 
     let newq = makeNewPosition()
 
-    // aimX = newq[0]
-    // aimY = newq[1]
-
-    // currentX = currentX + (aimX + newq[0])
-    // currentY = currentY + (aimY + newq[1])
-
     currentX = aimX + newq[0]
     currentY = aimY + newq[1]
 
@@ -80,7 +74,6 @@ moveImage()
 
 setInterval(function() {
     // moveImage()
-
     i = i + 1
     if (i >= images.length) {
         i = 0
@@ -99,7 +92,7 @@ const draw = function () {
 
     // if enough distance, add it the list
     // if (dist > 0.01) {
-        // save as what image now, x and y position as array
+        // save image now, x and y position as array
         positions.push([images[i], currentX, currentY])
     // }
 
@@ -123,6 +116,11 @@ draw()
 
 
 
+// window.addEventListener('resize', function (){
 
+//     canvasTag.width = window.innerWidth * 2
+//     canvasTag.height = window.innerHeight * 2
+
+// })
 
 
