@@ -38,8 +38,8 @@ document.addEventListener("mousemove", function (event) {
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the image)
-    const w = window.innerWidth - images[i].width
-    const h = window.innerHeight - images[i].height
+    const w = window.innerWidth - images[0].width
+    const h = window.innerHeight - images[0].height
 
     const nw = Math.floor(Math.random() * w)
     const nh = Math.floor(Math.random() * h)
