@@ -33,6 +33,16 @@ document.addEventListener("mousemove", function (event) {
 
 })
 
+document.addEventListener("touchmove", function (event) {
+    aimX = event.pageX
+    aimY = event.pageY
+    if (currentX === 0) {
+      currentX = event.pageX
+      currentY = event.pageY
+    }
+  
+  })
+
 
 
 function makeNewPosition(){
