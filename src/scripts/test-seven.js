@@ -26,7 +26,7 @@ const images = ["img/letter0.png", "img/letter1.png", "img/letter2.png", "img/le
 document.addEventListener("mousemove", function (event) {
   aimX = event.pageX
   aimY = event.pageY
-  if (currentX === null) {
+  if (currentX === 0) {
     currentX = event.pageX
     currentY = event.pageY
   }
@@ -103,7 +103,7 @@ const draw = function () {
     
     // and redraw based on the last 50 positions
     positions.forEach(pos => {
-            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, 400, 300)
+            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, 406, 436)
     })
     
     requestAnimationFrame(draw)
