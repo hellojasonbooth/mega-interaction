@@ -98,10 +98,10 @@ const draw = function () {
     const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
 
     // if enough distance, add it the list
-    if (dist > 0.01) {
+    // if (dist > 0.01) {
         // save as what image now, x and y position as array
         positions.push([images[i], currentX, currentY])
-    }
+    // }
 
     }
   
