@@ -9,8 +9,8 @@ canvasTag.style.height = window.innerHeight + "px"
 const context = canvasTag.getContext("2d")
 context.scale(2, 2)
 
-let aimX = Math.floor(Math.random() * window.innerWidth / 2)
-let aimY = Math.floor(Math.random() * window.innerHeight / 2)
+let aimX = window.innerWidth / 2
+let aimY = window.innerHeight / 2
 let currentX = 0
 let currentY = 0
 
@@ -92,7 +92,7 @@ const draw = function () {
 
     // if enough distance, add it the list
     // if (dist > 0.01) {
-        // save image now, x and y position as array
+        // save current images, x and y position as array
         positions.push([images[i], currentX, currentY])
     // }
 
