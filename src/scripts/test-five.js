@@ -7,7 +7,7 @@ let dimY
 let imgs
 
 function preload() {
-    imgs = loadImage("img/m.png")
+    imgs = loadImage("img/letter0.png")
 }
 
 
