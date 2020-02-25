@@ -33,12 +33,45 @@ document.addEventListener("mousemove", function (event) {
 
 })
 
-// canvasTag.addEventListener("click", function () {
-//   i = i + 1
-//   if (i >= images.length) {
-//     i = 0
-//   }
-// })
+currentX = window.innerWidth / 2
+currentY = window.innerHeight / 2
+aimX = window.innerWidth / 2
+aimY = window.innerHeight / 2
+
+function makeNewPosition(){
+    
+    // Get viewport dimensions (remove the dimension of the image)
+    const h = window.innerHeight - images[i].height
+    const w = window.innerWidth - images[i].width
+    
+    const nh = Math.floor(Math.random() * h)
+    const nw = Math.floor(Math.random() * w)
+    
+    return [nh,nw]
+ 
+}
+
+
+function runNq() {
+    let newq = makeNewPosition()
+
+    aimY = newq[0]
+    aimX = newq[1]
+
+    currentY = currentY + (aimY + newq[0])
+    currentX = currentX + (aimX + newq[1])
+
+    console.log(newq[0], newq[1])
+}
+
+
+    setInterval(function() {
+        runNq()
+        i = i + 1
+        if (i >= images.length) {
+            i = 0
+        }
+    }, 3000)
 
 
 const draw = function () {
