@@ -35,11 +35,6 @@ header.menu {
     justify-content: space-between;
 }
 
-
-canvas {
-    vertical-align: bottom;
-}
-
 a {
 
     text-decoration: none;
@@ -63,7 +58,18 @@ a.box:hover {
 }
 
 
-canvas {
+/* canvas {
     vertical-align: bottom;
+} */
+
+section#interaction-seven {
+    height: 100%;
 }
+
+section.blank {
+    height: 100vh;
+    background-color: white;
+}
+
+
 
