@@ -29,6 +29,12 @@ header {
     div {
         mix-blend-mode: difference;
     }
+
+    @media (max-width:770px) {
+        display: none;
+    }
+
+
 }
 
 header.menu {
