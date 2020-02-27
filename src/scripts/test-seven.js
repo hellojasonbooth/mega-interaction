@@ -48,8 +48,8 @@ document.addEventListener("touchmove", function (event) {
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the image)
-    const w = window.innerWidth - images[0].width
-    const h = window.innerHeight - images[0].height
+    const w = window.innerWidth - 406
+    const h = window.innerHeight
 
     const nw = Math.floor(Math.random() * w)
     const nh = Math.floor(Math.random() * h)
@@ -71,14 +71,6 @@ function moveImage() {
 }
 
 moveImage()
-
-setInterval(function() {
-    // moveImage()
-    i = i + 1
-    if (i >= images.length) {
-        i = 0
-    }
-}, 2000)
 
 
 const draw = function () {
@@ -105,14 +97,86 @@ const draw = function () {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     
     // and redraw based on the last 50 positions
-    positions.forEach(pos => {
-            context.drawImage(pos[0], pos[1] - 200, pos[2] - 300, 406, 436)
+    // positions.forEach(pos => {
+    //   context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 406, 436)
+    // })
+
+    positions.forEach((pos, index) => {
+      context.globalAlpha = index / 10
+      context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 406, 436)
     })
     
     requestAnimationFrame(draw)
 }
 
 draw()
+
+
+
+
+
+    // if the user is active cycle through the letters
+    setInterval(function() {
+      // moveImage()
+      i = i + 1
+      if (i >= images.length) {
+          i = 0
+      }
+    }, 2000)
+
+
+    // detect whether mouse is inactive
+    // setup a timer to keep track 
+    function resetTimer() { 
+      window.clearTimeout(timeout)
+      startTimer()
+    }
+
+    const timeoutCounter = 2000
+    let timeout
+  
+    function startTimer() { 
+        timeout = window.setTimeout(isInactive, timeoutCounter)
+    }
+      
+    function isInactive() {
+      // moveImage()
+    }
+    
+    function setupTimers () {
+        document.addEventListener("mousemove", resetTimer, false)
+        document.addEventListener("touchmove", resetTimer, false)
+        startTimer()
+    }
+        setupTimers()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
