@@ -83,10 +83,10 @@ const draw = function () {
     const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
 
     // if enough distance, add it the list
-    // if (dist > 0.01) {
+    if (dist > 0.009) {
         // save current images, x and y position as array
         positions.push([images[i], currentX, currentY])
-    // }
+    }
 
     }
   
@@ -102,7 +102,8 @@ const draw = function () {
     // })
 
     positions.forEach((pos, index) => {
-      context.globalAlpha = index / 10
+      context.globalAlpha = index / 16
+
       context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 406, 436)
     })
     
@@ -115,43 +116,49 @@ draw()
 
 
 
-    // if the user is active cycle through the letters
-    setInterval(function() {
-      // moveImage()
-      i = i + 1
-      if (i >= images.length) {
-          i = 0
-      }
-    }, 2000)
+
+    if ("ontouchstart" in document.documentElement) {
+      // if on mobile or tablet
 
 
-    // detect whether mouse is inactive
-    // setup a timer to keep track 
-    function resetTimer() { 
-      window.clearTimeout(timeout)
-      startTimer()
+
+    } else {
+      // if on desktop
+
     }
 
-    const timeoutCounter = 2000
-    let timeout
+
+
+
+
+
+
+// // detect whether mouse is inactive
+    // // setup a timer to keep track 
+    // function resetTimer() { 
+    //   window.clearTimeout(timeout)
+    //   startTimer()
+    // }
+
+    // const timeoutCounter = 1200
+    // let timeout
+    // let isActive = false
   
-    function startTimer() { 
-        timeout = window.setTimeout(isInactive, timeoutCounter)
-    }
+    // function startTimer() { 
+    //     timeout = window.setTimeout(isInactive, timeoutCounter)
+    //     isActive = true
+    // }
       
-    function isInactive() {
-      // moveImage()
-    }
+    // function isInactive() {
+    //   moveImage()
+    // }
     
-    function setupTimers () {
-        document.addEventListener("mousemove", resetTimer, false)
-        document.addEventListener("touchmove", resetTimer, false)
-        startTimer()
-    }
-        setupTimers()
-
-
-
+    // function setupTimers () {
+    //     document.addEventListener("mousemove", resetTimer, false)
+    //     document.addEventListener("touchmove", resetTimer, false)
+    //     startTimer()
+    // }
+    //     setupTimers()
 
 
 
