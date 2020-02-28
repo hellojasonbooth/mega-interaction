@@ -55,7 +55,7 @@ document.addEventListener("touchmove", function (event) {
   
     // Get viewport dimensions (remove the dimension of the image)
     const w = window.innerWidth - 406
-    const h = window.innerHeight
+    const h = window.innerHeight - 436
 
     const nw = Math.floor(Math.random() * w)
     const nh = Math.floor(Math.random() * h)
@@ -87,7 +87,7 @@ document.addEventListener("touchmove", function (event) {
       const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
   
           // if enough distance, add it the list
-          if (dist > 20) {
+          if (dist > 40) {
               // save current images, x and y position as array
               positions.push([images[i], currentX, currentY])
           }
@@ -119,7 +119,10 @@ document.addEventListener("touchmove", function (event) {
     }
    
     // call draw function on load
-    draw()
+    setTimeout(() => {
+      draw()
+    }, 500)
+
 
 
 // resizing browser window stuff

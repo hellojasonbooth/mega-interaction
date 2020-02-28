@@ -12,12 +12,6 @@ body {
     font-size: 50px;
 }
 
-/*
-a {
-    text-decoration: none;
-    color:white;
-}*/
-
 header {
     display: flex;
     position:fixed;
@@ -25,15 +19,20 @@ header {
     left:0;
     width:100%;
     padding: 18px;
+    flex-wrap: wrap;
 
     div {
         mix-blend-mode: difference;
+        display: flex;
+        margin-bottom: 18px;
     }
 
+}
+
+header.menu {
     @media (max-width:770px) {
         display: none;
     }
-
 
 }
 

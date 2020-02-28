@@ -44,12 +44,12 @@ document.addEventListener("touchmove", function (event) {
   })
 
 
-  setInterval(() => {
-    i = i + 1
-    if (i >= images.length) {
-        i = 0
-    }
-  }, 2000)
+//   setInterval(() => {
+//     i = i + 1
+//     if (i >= images.length) {
+//         i = 0
+//     }
+//   }, 2000)
 
   function makeNewPosition() {
   
@@ -80,8 +80,8 @@ document.addEventListener("touchmove", function (event) {
     const draw = function () {
 
       if (currentX) {    
-          currentX = currentX + (aimX - currentX) * 0.1
-          currentY = currentY + (aimY - currentY) * 0.1
+          currentX = currentX + (aimX - currentX) * 0.09
+          currentY = currentY + (aimY - currentY) * 0.09
   
       // work out the distance between current place and aim
       const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
@@ -119,9 +119,48 @@ document.addEventListener("touchmove", function (event) {
     }
    
     // call draw function on load
-    setTimeout(() => {
       draw()
-    }, 500)
+
+
+
+
+
+
+
+
+// detect whether mouse is inactive
+    // setup a timer to keep track 
+    function resetTimer() { 
+      window.clearTimeout(timeout)
+      startTimer()
+    }
+
+    let timeoutCounter = 800
+    let timeout
+    let isActive = false
+  
+    function startTimer() { 
+        timeout = window.setTimeout(isInactive, timeoutCounter)
+        isActive = true
+    }
+      
+    // if the user is inactive add 1 to the images
+    function isInactive() {
+        if (isActive === true) {
+            i = i + 1
+            if (i >= images.length) {
+                i = 0
+            }
+         }
+    }
+    
+    function setupTimers () {
+        document.addEventListener("mousemove", resetTimer, false)
+        document.addEventListener("touchmove", resetTimer, false)
+        startTimer()
+    }
+        setupTimers()
+
 
 
 
