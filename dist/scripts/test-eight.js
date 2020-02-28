@@ -110,7 +110,7 @@ document.addEventListener("touchmove", function (event) {
       } else {
         positions.forEach((pos, index) => {
           context.globalAlpha = index / 10
-          context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 203, 218)
+          context.drawImage(pos[0], pos[1] - 100, pos[2] - 100, 203, 218)
         })
 
       }
@@ -122,7 +122,7 @@ document.addEventListener("touchmove", function (event) {
     draw()
 
 
-
+// resizing browser window stuff
 window.addEventListener('resize', function (){
 
   context.clearRect(0, 0, window.innerWidth, window.innerHeight)
