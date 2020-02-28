@@ -135,7 +135,7 @@ document.addEventListener("touchmove", function (event) {
       startTimer()
     }
 
-    let timeoutCounter = 800
+    let timeoutCounter = 700
     let timeout
     let isActive = false
   
