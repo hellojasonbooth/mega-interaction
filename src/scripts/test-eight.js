@@ -44,34 +44,25 @@ document.addEventListener("touchmove", function (event) {
   })
 
 
-    // if ("ontouchstart" in document.documentElement) {
-      // if on mobile or tablet
-        // setInterval(() => {
-        //     moveImage()
-        // }, 2000)
-        
-    // } else {
-      // if on desktop
-
-      setInterval(() => {
-            i = i + 1
-            if (i >= images.length) {
-                i = 0
-            }
-        }, 2000)
-
-      function makeNewPosition() {
-    
-        // Get viewport dimensions (remove the dimension of the image)
-        const w = window.innerWidth - 406
-        const h = window.innerHeight
-    
-        const nw = Math.floor(Math.random() * w)
-        const nh = Math.floor(Math.random() * h)
-        
-        return [nw, nh]
-     
+  setInterval(() => {
+    i = i + 1
+    if (i >= images.length) {
+        i = 0
     }
+  }, 2000)
+
+  function makeNewPosition() {
+  
+    // Get viewport dimensions (remove the dimension of the image)
+    const w = window.innerWidth - 406
+    const h = window.innerHeight
+
+    const nw = Math.floor(Math.random() * w)
+    const nh = Math.floor(Math.random() * h)
+    
+    return [nw, nh]
+    
+  }
     
     function moveImage() {
     
@@ -96,7 +87,7 @@ document.addEventListener("touchmove", function (event) {
       const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
   
           // if enough distance, add it the list
-          if (dist > 40) {
+          if (dist > 20) {
               // save current images, x and y position as array
               positions.push([images[i], currentX, currentY])
           }
@@ -129,3 +120,19 @@ document.addEventListener("touchmove", function (event) {
    
     // call draw function on load
     draw()
+
+
+
+window.addEventListener('resize', function (){
+
+  context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+
+  canvasTag.width = window.innerWidth * 2
+  canvasTag.height = window.innerHeight * 2
+
+  canvasTag.style.width = window.innerWidth + "px"
+  canvasTag.style.height = window.innerHeight + "px"
+
+  context.scale(2, 2)
+  
+})
