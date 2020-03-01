@@ -88,8 +88,13 @@ document.addEventListener("touchmove", function (event) {
       
       }
       
-      // only the last 100
-      positions = positions.slice(-60)
+      // how many letters are in the trail
+      if(window.innerWidth > 900) {
+        positions = positions.slice(-60)
+      } else {
+        positions = positions.slice(-18)
+      }
+
       
       // remove EVERYTHING
       context.clearRect(0, 0, window.innerWidth, window.innerHeight)
