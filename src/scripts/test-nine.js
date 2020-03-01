@@ -92,7 +92,7 @@ document.addEventListener("touchmove", function (event) {
       if(window.innerWidth > 900) {
         positions = positions.slice(-60)
       } else {
-        positions = positions.slice(-18)
+        positions = positions.slice(-30)
       }
 
       
