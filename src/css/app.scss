@@ -12,6 +12,10 @@ body {
     font-size: 50px;
 }
 
+body.active {
+    overflow: hidden;
+}
+
 header {
     display: flex;
     position:fixed;
@@ -20,6 +24,7 @@ header {
     width:100%;
     padding: 18px;
     flex-wrap: wrap;
+    z-index: 999;
 
     div {
         mix-blend-mode: difference;
@@ -62,10 +67,39 @@ a.box:hover {
    transform: translateY(-5px);
 }
 
+button#arrow-down {
 
-canvas {
-    vertical-align: bottom;
-} 
+    background-color: transparent;
+    border: none;
+
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    cursor:pointer;
+
+    img {
+        width: 40px;
+    }
+}
+
+
+section#interaction-nine {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary-color;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+
+    canvas {
+        vertical-align: bottom;
+    }
+
+}
 
 section#interaction-seven {
     height: 100%;
@@ -73,8 +107,17 @@ section#interaction-seven {
 
 section.blank {
     height: 100vh;
-    background-color: white;
+    background-color: black;
 }
 
+section.blank.dark {
+    background-color: $primary-color;
+}
+
+
+main {
+    margin-top: 100vh;
+    transition: all 0.6s ease;
+}
 
 

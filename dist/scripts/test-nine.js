@@ -31,6 +31,8 @@ document.addEventListener("mousemove", function (event) {
     currentY = event.pageY
   }
 
+  timeoutCounter = 300
+
 })
 
 document.addEventListener("touchmove", function (event) {
@@ -42,14 +44,6 @@ document.addEventListener("touchmove", function (event) {
     }
   
   })
-
-
-//   setInterval(() => {
-//     i = i + 1
-//     if (i >= images.length) {
-//         i = 0
-//     }
-//   }, 2000)
 
   function makeNewPosition() {
   
@@ -80,8 +74,8 @@ document.addEventListener("touchmove", function (event) {
     const draw = function () {
 
       if (currentX) {    
-          currentX = currentX + (aimX - currentX) * 0.09
-          currentY = currentY + (aimY - currentY) * 0.09
+          currentX = currentX + (aimX - currentX) * 0.1
+          currentY = currentY + (aimY - currentY) * 0.1
   
       // work out the distance between current place and aim
       const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
@@ -124,10 +118,6 @@ document.addEventListener("touchmove", function (event) {
 
 
 
-
-
-
-
 // detect whether mouse is inactive
     // setup a timer to keep track 
     function resetTimer() { 
@@ -135,7 +125,7 @@ document.addEventListener("touchmove", function (event) {
       startTimer()
     }
 
-    let timeoutCounter = 600
+    let timeoutCounter = 700
     let timeout
     let isActive = false
   
@@ -160,6 +150,19 @@ document.addEventListener("touchmove", function (event) {
         startTimer()
     }
         setupTimers()
+
+
+    canvasTag.addEventListener('click', function () {
+      i = i + 1
+      if (i >= images.length) {
+          i = 0
+      }
+    })
+
+    setInterval (function () {
+      console.log(i)
+     }, 10)
+  
 
 
 
