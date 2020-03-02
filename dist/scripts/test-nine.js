@@ -101,7 +101,7 @@ canvasTag.addEventListener("touchmove", function (event) {
 
       // adjust the image size depending on screen sizes
       // then draw images
-      if(window.innerWidth > 900) {
+      if(window.innerWidth > 1100) {
         positions.forEach((pos, index) => {
           context.globalAlpha = index / 9
           context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 406, 436)
