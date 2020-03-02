@@ -67,7 +67,7 @@ a.box:hover {
    transform: translateY(-5px);
 }
 
-button#arrow-down {
+/*button#arrow-down {
 
     background-color: transparent;
     border: none;
@@ -82,10 +82,11 @@ button#arrow-down {
     img {
         width: 40px;
     }
-}
+}*/
 
 
-section#interaction-nine {
+section#interaction-nine,
+section#interaction-ten {
 
     position: fixed;
     top: 0;
@@ -105,7 +106,7 @@ section#interaction-seven {
     height: 100%;
 }
 
-section.blank {
+/*section.blank {
     height: 100vh;
     background-color: black;
 }
@@ -118,6 +119,6 @@ section.blank.dark {
 main {
     margin-top: 100vh;
     transition: all 0.6s ease;
-}
+}*/
 
 
