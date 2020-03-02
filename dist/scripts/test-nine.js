@@ -23,7 +23,7 @@ const images = ["img/letter0.png", "img/letter1.png", "img/letter2.png", "img/le
   return image
 })
 
-document.addEventListener("mousemove", function (event) {
+canvasTag.addEventListener("mousemove", function (event) {
   aimX = event.pageX
   aimY = event.pageY
   if (currentX === 0) {
@@ -31,11 +31,11 @@ document.addEventListener("mousemove", function (event) {
     currentY = event.pageY
   }
 
-  timeoutCounter = 300
+  timeoutCounter = 265
 
 })
 
-document.addEventListener("touchmove", function (event) {
+canvasTag.addEventListener("touchmove", function (event) {
     aimX = event.pageX
     aimY = event.pageY
     if (currentX === 0) {
@@ -81,7 +81,7 @@ document.addEventListener("touchmove", function (event) {
       const dist = Math.sqrt(Math.pow(currentX - aimX, 2) + Math.pow(currentY - aimY, 2))
   
           // if enough distance, add it the list
-          if (dist > 40) {
+          if (dist > 30) {
               // save current images, x and y position as array
               positions.push([images[i], currentX, currentY])
           }
@@ -90,9 +90,9 @@ document.addEventListener("touchmove", function (event) {
       
       // how many letters are in the trail
       if(window.innerWidth > 900) {
-        positions = positions.slice(-60)
+        positions = positions.slice(-55)
       } else {
-        positions = positions.slice(-30)
+        positions = positions.slice(-40)
       }
 
       
@@ -103,12 +103,12 @@ document.addEventListener("touchmove", function (event) {
       // then draw images
       if(window.innerWidth > 900) {
         positions.forEach((pos, index) => {
-          context.globalAlpha = index / 10
+          context.globalAlpha = index / 9
           context.drawImage(pos[0], pos[1] - 200, pos[2] - 200, 406, 436)
         })
       } else {
         positions.forEach((pos, index) => {
-          context.globalAlpha = index / 10
+          context.globalAlpha = index / 8
           context.drawImage(pos[0], pos[1] - 100, pos[2] - 100, 203, 218)
         })
 
@@ -130,7 +130,7 @@ document.addEventListener("touchmove", function (event) {
       startTimer()
     }
 
-    let timeoutCounter = 700
+    let timeoutCounter = 740
     let timeout
     let isActive = false
   
@@ -164,9 +164,11 @@ document.addEventListener("touchmove", function (event) {
       }
     })
 
-    setInterval (function () {
-      console.log(i)
-     }, 10)
+
+    // for testing
+    // setInterval (function () {
+    //   console.log(i)
+    //  }, 10)
   
 
 
